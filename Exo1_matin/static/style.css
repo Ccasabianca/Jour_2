@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 80vh;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.container {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+footer { 
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 40px;
+}
+
+form {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    flex-direction: column;
+    margin-top: 20px;
+    max-width: 500px;
+}
+
+button {
+    max-width: 100px;
+}
+
+.form-container {
+    width: 80%;
+margin: 0 auto;
+}

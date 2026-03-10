@@ -1,0 +1,34 @@
+<%- include('partials/_htmlhead') %>
+<div class="form-container">
+    <h1>
+        <%= title %>
+    </h1>
+    <% if (Object.keys(data).length> 0) { %>
+        <p>Données reçues lors de la dernière requête :</p>
+        <ul>
+            <% for (const key in data) { %>
+                <li><strong>
+                        <%= key %> :
+                    </strong>
+                    <%= data[key] %>
+                </li>
+                <% } %>
+        </ul>
+        <% } %>
+
+
+            <p>Formulaire de saisie :</p>
+            <form action="/form" method="GET">
+                <label>Votre nom
+                    <input type="text" name="name" value="<%= data.name || '' %>">
+                </label>
+                <label>Votre métier
+                    <input type="text" name="job" value="<%= data.job || '' %>">
+                </label>
+                <label>Aimez-vous Node.js ?
+                    <input type="checkbox" name="nodejs" <%=data.nodejs ? 'checked' : '' %>>
+                </label>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+            <%- include('partials/_htmlfoot') %>
