@@ -18,6 +18,7 @@ console.dir(cfg, { depth: null, color: true });
 const app = express();
 
 app.use(express.static(cfg.dir.static));
+app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 app.set('views', cfg.dir.views);
@@ -56,6 +57,22 @@ app.get('/form', (req, res) => {
     res.render('form', {
         title: 'Analyser les données HTTP GET',
         data: req.query
+    });
+});
+
+app.get('/form-post', (req, res) => {
+    res.render('form-post', {
+        title: 'Analyser les données HTTP POST',
+        data: {}
+    });
+});
+
+app.post('/form-post', (req, res) => {
+    console.dir(req.body, { depth: null, color: true });
+    req.body.nodejs = req.body.nodejs ? 'oui' : 'non';
+    res.render('form-post', {
+        title: 'Analyser les données HTTP POST',
+        data: req.body
     });
 });
 

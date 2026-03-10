@@ -3,6 +3,7 @@
         <h1>
             <%= title %>
         </h1>
+
         <% if (Object.keys(data).length> 0) { %>
             <p>Données reçues lors de la dernière requête :</p>
             <ul>
@@ -16,9 +17,8 @@
             </ul>
             <% } %>
 
-
                 <p>Formulaire de saisie :</p>
-                <form action="/form" method="GET">
+                <form action="/form-post" method="POST">
                     <label>Votre nom
                         <input type="text" name="name" value="<%= data.name || '' %>">
                     </label>
@@ -26,7 +26,7 @@
                         <input type="text" name="job" value="<%= data.job || '' %>">
                     </label>
                     <label>Aimez-vous Node.js ?
-                        <input type="checkbox" name="nodejs" <%=data.nodejs ? 'checked' : '' %>>
+                        <input type="checkbox" name="nodejs" <%=data.nodejs==='oui' ? 'checked' : '' %>>
                     </label>
                     <button type="submit">Submit</button>
                 </form>
