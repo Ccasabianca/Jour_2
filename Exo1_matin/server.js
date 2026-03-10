@@ -50,11 +50,15 @@ app.get('/bonjour/:lang/:name', (req, res) => {
 
 app.get('/form', (req, res) => {
     console.dir(req.query, { depth: null, color: true });
+    if (Object.keys(req.query).length > 0) {
+        req.query.nodejs = req.query.nodejs ? 'oui' : 'non';
+    }
     res.render('form', {
-        title: 'Formulaire',
+        title: 'Analyser les données HTTP GET',
         data: req.query
     });
 });
+
 
 app.use((req, res) => {
     res.status(404).render('404', { title: 'Page introuvable' });
